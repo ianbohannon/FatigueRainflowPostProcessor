@@ -13,7 +13,7 @@ For each input file, the tool:
    - The exact stress breakpoint is currently hardcoded in `ReadHistogram.py`.
 3. Computes row fatigue as `cycles / N`.
 4. Sums row fatigue to `Total_Fatigue`.
-5. Computes `Lifespan_Years = design_life / Total_Fatigue` (default design life is 20 years in `Main.py`).
+5. Computes `Lifespan_Years = design_life / Total_Fatigue` as the estimated service life under the same loading spectrum (default design life is 20 years in `Main.py`).
 
 Results are written to `Output/fatigue_results.csv`.
 
