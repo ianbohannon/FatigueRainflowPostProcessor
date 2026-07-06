@@ -8,9 +8,9 @@ For each input file, the tool:
 
 1. Loads two-column numeric data (`stress`, `cycles`).
 2. Computes cycles-to-failure `N` using a piecewise S–N relationship:
-   - If `stress < 92.682982338837`: `N = 10^15.835 / stress^5`
-   - Otherwise: `N = 10^11.901 / stress^3`
-   - `92.682982338837` is the stress breakpoint currently hardcoded in `ReadHistogram.py`.
+   - If `stress < 92.682982338837`: `N = 10^(15.835) / stress^5`
+   - Otherwise: `N = 10^(11.901) / stress^3`
+   - `92.682982338837` is the exact stress breakpoint currently hardcoded in `ReadHistogram.py` (shown without rounding to match implementation behavior).
 3. Computes row fatigue as `cycles / N`.
 4. Sums row fatigue to `Total_Fatigue`.
 5. Computes `Lifespan_Years = design_life / Total_Fatigue` (default design life is 20 years in `Main.py`).
