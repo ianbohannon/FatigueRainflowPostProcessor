@@ -10,9 +10,10 @@ For each input file, the tool:
 2. Computes cycles-to-failure `N` using a piecewise S–N relationship:
    - If `stress < 92.682982338837`: `N = 10^15.835 / stress^5`
    - Otherwise: `N = 10^11.901 / stress^3`
+   - `92.682982338837` is the stress breakpoint currently hardcoded in `ReadHistogram.py`.
 3. Computes row fatigue as `cycles / N`.
 4. Sums row fatigue to `Total_Fatigue`.
-5. Computes `Lifespan_Years = design_life / Total_Fatigue` (design life is 20 years in `Main.py`).
+5. Computes `Lifespan_Years = design_life / Total_Fatigue` (default design life is 20 years in `Main.py`).
 
 Results are written to `Output/fatigue_results.csv`.
 
@@ -52,6 +53,8 @@ FatiguePostProcessor.bat
 4. Check generated results in:
 
 `Output/fatigue_results.csv`
+
+To use a different design life, change `design_life` in `Main.py`.
 
 ## Output format
 
