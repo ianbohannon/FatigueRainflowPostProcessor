@@ -8,8 +8,8 @@ For each input file, the tool:
 
 1. Loads two-column numeric data (`stress`, `cycles`).
 2. Computes cycles-to-failure `N` using a piecewise S–N relationship:
-   - If `stress < 92.683` (rounded display value; exact code constant: `92.682982338837`): `N = (10^15.835) / (stress^5)`
-   - Otherwise: `N = (10^11.901) / (stress^3)`
+   - If `stress < 92.683` (rounded display value; exact code constant: `92.682982338837`): `N = (10**15.835) / (stress**5)`
+   - Otherwise: `N = (10**11.901) / (stress**3)`
    - The exact stress breakpoint is currently hardcoded in `ReadHistogram.py`.
    - Exponents `15.835` and `11.901` are the exact constants currently used in code.
 3. Computes row fatigue as `cycles / N`.
