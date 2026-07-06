@@ -8,9 +8,9 @@ For each input file, the tool:
 
 1. Loads two-column numeric data (`stress`, `cycles`).
 2. Computes cycles-to-failure `N` using a piecewise S–N relationship:
-   - If `stress < 92.682982338837`: `N = 10^(15.835) / stress^5`
+   - If `stress < 92.683` (exact code constant: `92.682982338837`): `N = 10^(15.835) / stress^5`
    - Otherwise: `N = 10^(11.901) / stress^3`
-   - `92.682982338837` is the exact stress breakpoint currently hardcoded in `ReadHistogram.py` (shown without rounding to match implementation behavior).
+   - The exact stress breakpoint is currently hardcoded in `ReadHistogram.py`.
 3. Computes row fatigue as `cycles / N`.
 4. Sums row fatigue to `Total_Fatigue`.
 5. Computes `Lifespan_Years = design_life / Total_Fatigue` (default design life is 20 years in `Main.py`).
@@ -36,7 +36,7 @@ pip install numpy
 
 ## Usage
 
-1. Create an `Input` folder in the project root (capital `I`, as used by the current code).
+1. Create the input folder configured in `Main.py` (`Input` by default).
 2. Put one or more fatigue data files in `Input/` (plain numeric two-column files readable by `numpy.loadtxt`).
 3. Run:
 
